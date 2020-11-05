@@ -51,7 +51,7 @@ tabsParent.addEventListener('click', (event) => {
 
 // ***** Таймер ******
 
-const deadLine = '2020-12-11';
+const deadLine = '2021-12-11';
 
 function getTimeRemaining(endtime) {
 	const t = Date.parse(endtime) - Date.parse(new Date()),
