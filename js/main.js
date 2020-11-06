@@ -409,3 +409,5 @@ function culc() {
 	getDynamicInfo('#weight');
 	getDynamicInfo('#age');
 }
+
+culc();
