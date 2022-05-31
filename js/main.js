@@ -52,7 +52,7 @@ tabsParent.addEventListener('click', (event) => {
 
 // ***** Таймер ******
 
-const deadLine = '2021-12-11';
+const deadLine = '2023-12-11';
 
 function getTimeRemaining(endtime) {
 	const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -411,3 +411,51 @@ function culc() {
 }
 
 culc();
+
+// Slider
+
+const slides = document.querySelectorAll('.offer__slide'),
+	prev = document.querySelector('.offer__slider-prev'),
+	next = document.querySelector('.offer__slider-next'),
+	total = document.querySelector('#total'),
+	current = document.querySelector('#current');
+
+let slideIndex = 1;
+
+showSLides(slideIndex);
+
+if(slides.length < 10){
+	total.textContent = `0${slides.length}`;
+}else{
+	total.textContent = slides.length;
+}
+
+function showSLides(id) {
+	if (id > slides.length) {
+		slideIndex = 1;
+	}
+
+	if (id < 1)
+		slideIndex = slides.length;
+
+	slides.forEach(item => item.style.display = 'none');
+	slides[slideIndex - 1].style.display = 'block';
+
+	if(slides.length < 10){
+		current.textContent = `0${slideIndex}`;
+	}else{
+		current.textContent = slideIndex;
+	}
+}
+
+function plusSlides(n) {
+	showSLides(slideIndex += n)
+}
+
+prev.addEventListener('click', ()=>{
+	plusSlides(-1);
+})
+
+next.addEventListener('click', ()=>{
+	plusSlides(1);
+})
